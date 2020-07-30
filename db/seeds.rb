@@ -41,7 +41,8 @@ gossip_tags.reset_pk_sequence
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     description: Faker::Quote.unique.famous_last_words,
-    city_id: rand(1..10)
+    city_id: rand(1..10),
+    age: rand(15..40)
   )
 end
 
@@ -65,5 +66,22 @@ end
     gossip_id: rand(1..20)
   ) 
 end
+
+15.times do
+  private_messages =PrivateMessage.create!(
+    sender_id: rand(1..10),
+    recipient_id: rand(1..10),
+    content: Faker::ChuckNorris.fact
+  )
+end
+
+15.times do
+  private_messages =PrivateMessage.create!(
+    sender_id: rand(1..10),
+    recipient_id: rand(1..10),
+    content: Faker::ChuckNorris.fact
+  )
+end
+
 
 puts "Seed done!"
